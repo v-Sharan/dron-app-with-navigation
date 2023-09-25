@@ -39,6 +39,7 @@ export default function Page() {
 
     let location = await Location.getCurrentPositionAsync({});
     setLocation(location.coords);
+    console.log(location.coords);
     dispatch(
       setDistination({
         latitude: location.coords.latitude,
@@ -83,6 +84,7 @@ export default function Page() {
           ),
         }}
       />
+
       <View
         style={{
           display: "flex",

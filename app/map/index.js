@@ -11,23 +11,21 @@ import axios from "axios";
 import Message from "../../src/components/Message";
 
 const Map = () => {
-  const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const location = useSelector(selectDistination);
-
   const type = useSelector(selectType);
+
+  console.log(location);
 
   const sendLocation = (type) => {
     setLoading(true);
     axios
-      .post("https://medical-uav.onrender.com/api/medicaluav", {
+      .post("https://madical-uav.onrender.com/api/medicaluav", {
         ...location,
         type,
       })
       .then((res) => {
-        setMessage(res.data.message);
         Alert.alert(res.data.message);
-        console.log(res.data.message);
       })
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
